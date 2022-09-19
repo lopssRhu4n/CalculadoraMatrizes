@@ -1,4 +1,3 @@
-
 def selectNumberOfMatrix():
     n = int(input('Digite o número de matrizes que irá criar: '))
     
@@ -53,7 +52,10 @@ def verifyMatrixMult(matrix1, matrix2):
         
 
         
-def somaMatrix(matrix1, matrix2):
+def somaMatrix():
+    
+    matrix1 = createMatrix()
+    matrix2 = createMatrix()
     
     if verifyMatrix(matrix1, matrix2) == True:
         return print('Linhas e colunas das matrizes não batem!')
@@ -76,7 +78,10 @@ def somaMatrix(matrix1, matrix2):
         return newMatrix
 
 
-def subtraiMatrix(matrix1, matrix2):
+def subtraiMatrix():
+    
+    matrix1 = createMatrix()
+    matrix2 = createMatrix()
     
     if verifyMatrix(matrix1, matrix2) == True:
         return print('Linhas e colunas das matrizes não batem!')
@@ -98,7 +103,9 @@ def subtraiMatrix(matrix1, matrix2):
         
         return newMatrix
     
-def multiplicaMatrix(matrix1, matrix2):
+def multiplicaMatrix():
+    matrix1 = createMatrix()
+    matrix2 = createMatrix()
     
     if verifyMatrixMult(matrix1, matrix2) == True:
         return print('Número de colunas e linha para multiplicação não batem!')
@@ -108,25 +115,29 @@ def multiplicaMatrix(matrix1, matrix2):
         
         for row in matrix1:
             newMatrixRow = []
+            n = 0
             indexRow = matrix1.index(row)
             
             for col in row:
                 
                 indexCol = row.index(col)
                 
+                print(f'Valor A{indexRow}{indexCol}: {col}')
+                print(f'Valor B{indexCol}{indexRow}: {matrix2[indexCol][indexRow]}')
                 n += col*matrix2[indexCol][indexRow]
+                print(f'resultado: {n}' )
+                
+            newMatrixRow = n
+            newMatrix.append(newMatrixRow)    
 
-                print(indexCol)
-                newMatrixRow.append(n)            
-    
-
+        return newMatrix
 #for n in range(numberOfMatrix): 
-matrix1 = createMatrix()
-matrix2 = createMatrix()        
 
 
-newMatrix = somaMatrix(matrix1, matrix2)
-matrixSub = subtraiMatrix(matrix1, matrix2)
+newMatrix = somaMatrix()
+matrixSub = subtraiMatrix()
+matrixMult = multiplicaMatrix()
 
 print(f'Matriz soma: {newMatrix}')
 print(f'Matriz subtração: {matrixSub}')
+print(f'Matrix multiplicação: {matrixMult}')

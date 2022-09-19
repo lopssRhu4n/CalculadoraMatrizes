@@ -10,12 +10,14 @@ class Controler:
         escolha = self.view.menu()
         
         if escolha == '1':
-            self.oper.createMatrix()
+            self.oper.somaMatrix()
+            input()
         if escolha == '2':
-            self.oper.createMatrix()
+            self.oper.subtraiMatrix()
+            input(5)
         if escolha == '3':
-            self.oper.createMatrix()
-        
+            self.oper.multiplicaMatrix()
+            input()
         if escolha == '4':
             self.oper.createMatrix()
         
@@ -27,3 +29,5 @@ class Controler:
     def finish(self):
         print('Obrigado por usar nosso programa!')
         
+a = Controler()
+a.start()
